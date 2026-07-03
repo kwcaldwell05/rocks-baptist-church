@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rocks Baptist Church — Pamplin, Virginia</title>
+<meta name="description" content="Rocks Baptist Church in Pamplin, Virginia — presenting the good news of Jesus since 1772.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600;700&family=Libre+Franklin:wght@500;600&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --parchment: #F2E9D8;
+    --parchment-dim: #E8DCC4;
+    --walnut: #362419;
+    --walnut-soft: #5B4433;
+    --charcoal: #211712;
+    --slate: #4C6478;
+    --slate-deep: #33475A;
+    --brick: #9A4430;
+    --brass: #B8923F;
+    --line: rgba(54,36,25,0.16);
+    --shadow: 0 10px 30px rgba(33,23,18,0.18);
+
+    --font-display: "Fraunces", serif;
+    --font-body: "Source Sans 3", sans-serif;
+    --font-label: "Libre Franklin", sans-serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family: var(--font-body);
+    background: var(--parchment);
+    color: var(--walnut);
+    line-height: 1.6;
+    overflow-x:hidden;
+  }
+
+  img, svg{display:block; max-width:100%;}
+  a{color:inherit;}
+
+  .wrap{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  @media (max-width: 640px){
+    .wrap{padding: 0 20px;}
+  }
+
+  /* Texture */
+  body::before{
+    content:"";
+    position: fixed;
+    inset:0;
+    pointer-events:none;
+    z-index: 1;
+    opacity: 0.4;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(54,36,25,0.035) 0, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(54,36,25,0.03) 0, transparent 45%);
+  }
+
+  /* ---------- Skip link ---------- */
+  .skip-link{
+    position:absolute; left:-9999px; top:0;
+    background: var(--charcoal); color: var(--parchment);
+    padding: 12px 20px; z-index: 999; font-family: var(--font-label);
+  }
+  .skip-link:focus{ left: 20px; top: 20px; }
+
+  :focus-visible{
+    outline: 3px solid var(--brick);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Header / Nav ---------- */
+  header{
+    position: sticky;
+    top:0;
+    z-index: 100;
+    background: rgba(242,233,216,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 18px 32px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    letter-spacing: 0.01em;
+    text-decoration:none;
+    color: var(--walnut);
+  }
+  .brand .mark{
+    width: 34px; height:34px;
+    flex-shrink:0;
+  }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap: 34px;
+  }
+  nav a{
+    text-decoration:none;
+    font-family: var(--font-label);
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--walnut-soft);
+    position:relative;
+    padding-bottom: 4px;
+  }
+  nav a::after{
+    content:"";
+    position:absolute;
+    left:0; right:100%;
+    bottom:0;
+    height:2px;
+    background: var(--brick);
+    transition: right 0.25s ease;
+  }
+  nav a:hover::after, nav a:focus-visible::after{ right:0; }
+
+  .nav-toggle{
+    display:none;
+    background:none;
+    border: none;
+    cursor:pointer;
+    flex-direction:column;
+    gap:5px;
+    padding: 6px;
+  }
+  .nav-toggle span{
+    width: 26px; height:2px; background: var(--walnut); display:block;
+  }
+
+  @media (max-width: 800px){
+    nav{
+      position:fixed;
+      top: 68px; left:0; right:0;
+      background: var(--parchment);
+      border-bottom: 1px solid var(--line);
+      transform: translateY(-130%);
+      transition: transform 0.3s ease;
+    }
+    nav.open{ transform: translateY(0); }
+    nav ul{
+      flex-direction:column;
+      gap:0;
+      padding: 10px 32px 26px;
+    }
+    nav ul li{ border-top: 1px solid var(--line); }
+    nav a{ display:block; padding: 16px 0; }
+    .nav-toggle{ display:flex; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding: 84px 0 96px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family: var(--font-label);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brick);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom: 22px;
+  }
+  .eyebrow::before{
+    content:"";
+    width: 28px; height:1px;
+    background: var(--brick);
+  }
+  h1{
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(2.6rem, 5.4vw, 4.1rem);
+    line-height: 1.03;
+    color: var(--charcoal);
+    margin-bottom: 24px;
+  }
+  h1 em{
+    font-style: italic;
+    font-weight: 500;
+    color: var(--brick);
+  }
+  .hero p.lede{
+    font-size: 1.14rem;
+    max-width: 46ch;
+    color: var(--walnut-soft);
+    margin-bottom: 34px;
+  }
+  .btn-row{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    font-family: var(--font-label);
+    font-weight: 600;
+    font-size: 0.86rem;
+    letter-spacing: 0.03em;
+    text-decoration:none;
+    padding: 15px 28px;
+    border-radius: 3px;
+    display:inline-block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primary{
+    background: var(--brick);
+    color: var(--parchment);
+    box-shadow: 0 6px 18px rgba(154,68,48,0.35);
+  }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(154,68,48,0.4); }
+  .btn-ghost{
+    border: 1.5px solid var(--walnut);
+    color: var(--walnut);
+  }
+  .btn-ghost:hover{ background: var(--walnut); color: var(--parchment); }
+
+  /* Hero founding-year emblem */
+  .emblem-wrap{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .emblem{
+    width: min(100%, 340px);
+    aspect-ratio: 1;
+    position:relative;
+  }
+  .emblem svg{ width:100%; height:100%; }
+  .emblem-year{
+    position:absolute;
+    top:50%; left:50%;
+    transform: translate(-50%,-52%);
+    text-align:center;
+    font-family: var(--font-display);
+    color: var(--charcoal);
+  }
+  .emblem-year .num{
+    font-size: 2.6rem;
+    font-weight: 600;
+    display:block;
+    line-height:1;
+  }
+  .emblem-year .cap{
+    font-family: var(--font-label);
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+    text-transform:uppercase;
+    color: var(--slate-deep);
+    display:block;
+    margin-top: 6px;
+  }
+
+  @media (max-width: 900px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .emblem-wrap{ order:-1; margin-bottom: 8px; }
+    .emblem{ width: 220px; }
+  }
+
+  /* ---------- Section shell ---------- */
+  section{ position: relative; padding: 88px 0; }
+  .section-head{ max-width: 62ch; margin-bottom: 52px; }
+  .section-head .eyebrow{ margin-bottom: 14px; }
+  h2{
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.9rem, 3.4vw, 2.5rem);
+    color: var(--charcoal);
+  }
+  .section-head p{ margin-top: 16px; color: var(--walnut-soft); font-size: 1.05rem; }
+
+  .band-dark{
+    background: var(--charcoal);
+    color: var(--parchment-dim);
+  }
+  .band-dark h2, .band-dark .eyebrow{ color: var(--parchment); }
+  .band-dark .section-head p{ color: rgba(242,233,216,0.7); }
+  .band-dark .eyebrow{ color: var(--brass); }
+  .band-dark .eyebrow::before{ background: var(--brass); }
+
+  /* ---------- Hymn board (service times) ---------- */
+  .board{
+    background: linear-gradient(180deg, #251A12, #1B120C);
+    border-radius: 6px;
+    padding: 48px clamp(20px, 4vw, 56px);
+    box-shadow: inset 0 0 0 1px rgba(184,146,63,0.18), var(--shadow);
+  }
+  .board-label{
+    font-family: var(--font-label);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 28px;
+  }
+  .tiles-row{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+  }
+  .service-tile{
+    background: #14100C;
+    border: 1px solid rgba(184,146,63,0.25);
+    border-radius: 4px;
+    padding: 26px 24px;
+    display:flex;
+    align-items:center;
+    gap: 20px;
+  }
+  .tile-slot{
+    display:flex;
+    gap: 4px;
+    flex-shrink:0;
+  }
+  .peg{
+    width: 30px; height: 40px;
+    background: #FBF6E9;
+    color: #14100C;
+    border-radius: 2px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 3px 0 rgba(0,0,0,0.35);
+  }
+  .peg.colon{ background:transparent; color:#B8923F; box-shadow:none; width:10px; font-size:1.2rem; }
+  .service-copy .name{
+    font-family: var(--font-label);
+    font-weight: 600;
+    font-size: 0.98rem;
+    letter-spacing: 0.02em;
+    color: var(--parchment);
+    text-transform: uppercase;
+  }
+  .service-copy .meta{
+    font-size: 0.9rem;
+    color: rgba(242,233,216,0.62);
+    margin-top: 4px;
+  }
+  .board-footnote{
+    margin-top: 26px;
+    font-size: 0.85rem;
+    color: rgba(242,233,216,0.5);
+    font-style: italic;
+  }
+
+  /* ---------- Welcome / about ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items:start;
+  }
+  .about-grid p + p{ margin-top: 18px; }
+  .about-grid p{ color: var(--walnut-soft); }
+  .pull-line{
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: var(--brick);
+    border-left: 3px solid var(--brick);
+    padding-left: 24px;
+  }
+  @media (max-width: 800px){ .about-grid{ grid-template-columns: 1fr; gap: 36px; } }
+
+  /* ---------- Timeline (history) ---------- */
+  .timeline{
+    position:relative;
+    padding-left: 32px;
+    border-left: 2px solid var(--line);
+  }
+  .t-item{
+    position:relative;
+    padding-bottom: 40px;
+  }
+  .t-item:last-child{ padding-bottom:0; }
+  .t-item::before{
+    content:"";
+    position:absolute;
+    left:-38px; top:4px;
+    width:12px; height:12px;
+    border-radius:50%;
+    background: var(--brick);
+    box-shadow: 0 0 0 4px var(--parchment), 0 0 0 5px var(--line);
+  }
+  .t-year{
+    font-family: var(--font-display);
+    font-weight:600;
+    color: var(--charcoal);
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  .t-copy{ color: var(--walnut-soft); max-width: 60ch; }
+
+  /* ---------- Ministries ---------- */
+  .min-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+    gap: 28px;
+  }
+  .min-card{
+    background: var(--parchment-dim);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 32px 26px;
+  }
+  .min-card .glyph{
+    width: 40px; height:40px;
+    margin-bottom: 20px;
+    color: var(--slate-deep);
+  }
+  .min-card h3{
+    font-family: var(--font-display);
+    font-weight:600;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--charcoal);
+  }
+  .min-card p{ color: var(--walnut-soft); font-size: 0.96rem; }
+
+  /* ---------- Visit / contact ---------- */
+  .visit-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+  .info-card{
+    background: var(--charcoal);
+    color: var(--parchment);
+    border-radius: 6px;
+    padding: 42px;
+  }
+  .info-row{
+    display:flex;
+    gap:16px;
+    padding: 18px 0;
+    border-top: 1px solid rgba(242,233,216,0.14);
+  }
+  .info-row:first-of-type{ border-top:none; padding-top:0; }
+  .info-row .glyph{ width:22px; height:22px; flex-shrink:0; color: var(--brass); margin-top:2px; }
+  .info-row .label{
+    font-family: var(--font-label);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform:uppercase;
+    color: rgba(242,233,216,0.55);
+    margin-bottom: 4px;
+  }
+  .info-row a{ text-decoration:none; }
+  .info-row a:hover{ text-decoration:underline; }
+  .map-frame{
+    border-radius: 6px;
+    overflow:hidden;
+    border: 1px solid var(--line);
+    min-height: 320px;
+    box-shadow: var(--shadow);
+  }
+  .map-frame iframe{ width:100%; height:100%; min-height:320px; border:0; display:block; }
+
+  @media (max-width: 800px){ .visit-grid{ grid-template-columns: 1fr; } }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: var(--walnut);
+    color: rgba(242,233,216,0.75);
+    padding: 48px 0 32px;
+  }
+  .foot-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap: 20px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(242,233,216,0.15);
+  }
+  .foot-brand{
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--parchment);
+  }
+  footer nav ul{ display:flex; gap:24px; list-style:none; }
+  footer nav a{
+    text-decoration:none;
+    font-family: var(--font-label);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform:uppercase;
+    color: rgba(242,233,216,0.75);
+  }
+  footer nav a:hover{ color: var(--parchment); }
+  .foot-bottom{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    padding-top: 22px;
+    font-size: 0.82rem;
+    color: rgba(242,233,216,0.5);
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible{ opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  .edit-flag{
+    display:inline-block;
+    margin-left: 8px;
+    font-family: var(--font-label);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform:uppercase;
+    color: var(--brick);
+    border: 1px solid var(--brick);
+    border-radius: 3px;
+    padding: 2px 6px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header>
+  <div class="nav-row wrap">
+    <a class="brand" href="#top">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 3L36 12V37H24V24H16V37H4V12L20 3Z" stroke="#362419" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M20 8V16" stroke="#9A4430" stroke-width="2" stroke-linecap="round"/>
+        <path d="M16 12H24" stroke="#9A4430" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      Rocks Baptist Church
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="siteNav">
+      <ul>
+        <li><a href="#about">Welcome</a></li>
+        <li><a href="#times">Service Times</a></li>
+        <li><a href="#history">Our History</a></li>
+        <li><a href="#ministries">Ministries</a></li>
+        <li><a href="#visit">Visit Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Pamplin, Virginia · Southern Baptist</p>
+        <h1>Good news has been <em>preached on this hill</em> since 1772.</h1>
+        <p class="lede">Rocks Baptist Church is a small country congregation with a long memory — gathering the Pamplin community for worship, fellowship, and Scripture for well over two centuries.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#times">Plan Your Visit</a>
+          <a class="btn btn-ghost" href="#visit">Get Directions</a>
+        </div>
+      </div>
+      <div class="emblem-wrap">
+        <div class="emblem">
+          <svg viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="170" cy="170" r="168" stroke="#362419" stroke-width="1" opacity="0.25"/>
+            <circle cx="170" cy="170" r="148" stroke="#9A4430" stroke-width="1.5" stroke-dasharray="2 6" opacity="0.5"/>
+            <path d="M170 60 L260 108 V270 H196 V196 H144 V270 H80 V108 Z" fill="#4C6478" opacity="0.12"/>
+            <path d="M170 60 L260 108 V270 H196 V196 H144 V270 H80 V108 Z" stroke="#33475A" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M170 78 V104" stroke="#9A4430" stroke-width="2" stroke-linecap="round"/>
+            <path d="M157 91 H183" stroke="#9A4430" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div class="emblem-year">
+            <span class="num">1772</span>
+            <span class="cap">Founded</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE TIMES -->
+  <section class="band-dark" id="times">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Join us</p>
+        <h2>Service Times</h2>
+        <p>However you find your way here, you're welcome in the pew closest to the door — or the one up front.</p>
+      </div>
+
+      <div class="board reveal">
+        <p class="board-label">Sunday &amp; Wednesday</p>
+        <div class="tiles-row">
+          <div class="service-tile">
+            <div class="tile-slot">
+              <span class="peg">9</span><span class="peg colon">:</span><span class="peg">3</span><span class="peg">0</span>
+            </div>
+            <div class="service-copy">
+              <div class="name">Sunday School</div>
+              <div class="meta">All ages · Sunday morning</div>
+            </div>
+          </div>
+          <div class="service-tile">
+            <div class="tile-slot">
+              <span class="peg">1</span><span class="peg">0</span><span class="peg colon">:</span><span class="peg">3</span><span class="peg">0</span>
+            </div>
+            <div class="service-copy">
+              <div class="name">Morning Worship</div>
+              <div class="meta">Sunday · Sanctuary</div>
+            </div>
+          </div>
+          <div class="service-tile">
+            <div class="tile-slot">
+              <span class="peg">7</span><span class="peg colon">:</span><span class="peg">0</span><span class="peg">0</span>
+            </div>
+            <div class="service-copy">
+              <div class="name">Bible Study</div>
+              <div class="meta">Wednesday evening</div>
+            </div>
+          </div>
+        </div>
+        <p class="board-footnote">Times shown are current best information — please confirm exact times and any evening or seasonal changes with the church office at (434) 248-6986 before your first visit.<span class="edit-flag">Verify</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WELCOME / ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Who we are</p>
+        <h2>A church rooted in a small place</h2>
+      </div>
+      <div class="about-grid reveal">
+        <div>
+          <p>Rocks Baptist Church sits on Rocks Church Road just outside Pamplin, Virginia — a Southern Baptist congregation that has kept the doors open through more than two hundred and fifty years of Southside Virginia history.</p>
+          <p>We're a working congregation more than a program-driven one: familiar faces, hymns you know the words to, and a pulpit centered on Scripture. Visitors are never asked to stand up or wear a name tag — just to sit down and stay a while.</p>
+          <p><em>[Add a paragraph here from your pastor or a longtime member — a welcome note in their own words does more than any copy we could write for you.]</em><span class="edit-flag">Edit</span></p>
+        </div>
+        <div>
+          <p class="pull-line">"Presenting the good news of Jesus to the Pamplin, Virginia area since 1772."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY -->
+  <section class="band-dark" id="history" style="background: var(--parchment-dim); color: var(--walnut);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" style="color:var(--brick);">Our History</p>
+        <h2 style="color:var(--charcoal);">Two and a half centuries in Pamplin</h2>
+        <p style="color:var(--walnut-soft);">A brief look at where this congregation has come from.</p>
+      </div>
+      <div class="timeline reveal">
+        <div class="t-item">
+          <div class="t-year">1772</div>
+          <div class="t-copy">Rocks Baptist Church is established in the Pamplin, Virginia area — one of the oldest congregations in this part of Southside Virginia.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-year">Generations of Sundays</div>
+          <div class="t-copy"><em>[Add a milestone here — a building expansion, an anniversary celebration, a pastor's long tenure, or another moment your congregation remembers.]</em><span class="edit-flag">Edit</span></div>
+        </div>
+        <div class="t-item">
+          <div class="t-year">Today</div>
+          <div class="t-copy">Rocks Baptist Church continues as an active Southern Baptist Convention congregation serving Pamplin and the surrounding Appomattox County community.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINISTRIES -->
+  <section id="ministries">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Get involved</p>
+        <h2>Ministries &amp; Fellowship</h2>
+        <p>A short list to start with — tell us what your church actually runs and we'll swap this in exactly.<span class="edit-flag">Edit</span></p>
+      </div>
+      <div class="min-grid reveal">
+        <div class="min-card">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21c-4-3-8-6-8-10a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4-4 7-8 10Z"/></svg>
+          <h3>Children's Ministry</h3>
+          <p>Sunday School classes for all ages, running alongside the morning service.</p>
+        </div>
+        <div class="min-card">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M14 4v5h5"/></svg>
+          <h3>Wednesday Bible Study</h3>
+          <p>Midweek study and prayer, open to the whole congregation and community.</p>
+        </div>
+        <div class="min-card">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21c1-4 3-6 9-6s8 2 9 6"/><circle cx="12" cy="8" r="4"/></svg>
+          <h3>Youth Group</h3>
+          <p><em>[Describe your youth program — meeting day, age range, leader.]</em></p>
+        </div>
+        <div class="min-card">
+          <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V10l8-6 8 6v11"/><path d="M9 21v-6h6v6"/></svg>
+          <h3>Community Outreach</h3>
+          <p><em>[Describe any food pantry, visitation, or mission work here.]</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT / CONTACT -->
+  <section class="band-dark" id="visit">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Find us</p>
+        <h2>Visit Rocks Baptist</h2>
+        <p>We're just off the road, on Rocks Church Road — easy to find, easier to feel at home in.</p>
+      </div>
+      <div class="visit-grid reveal">
+        <div class="info-card">
+          <div class="info-row">
+            <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div>
+              <div class="label">Address</div>
+              <a href="https://www.bing.com/maps?&mepi=0~~Embedded~Address_Link&ty=18&q=Rocks%20Baptist%20Church&ss=ypid.YN81D6D411EB322092&ppois=37.29502868652344_-78.73005676269531_Rocks%20Baptist%20Church_YN81D6D411EB322092~&cp=37.295029~-78.730057&v=2&sV=1&FORM=MPSRPL" target="_blank" rel="noopener">393 Rocks Church Rd, Pamplin, VA 23958</a>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c1 .3 2 .5 3 .7a2 2 0 0 1 1.7 2Z"/></svg>
+            <div>
+              <div class="label">Phone</div>
+              <a href="tel:4342486986">(434) 248-6986</a>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <div>
+              <div class="label">Email</div>
+              <div><em>[Add church email address]</em> <span class="edit-flag">Edit</span></div>
+            </div>
+          </div>
+          <div class="info-row">
+            <svg class="glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <div>
+              <div class="label">Affiliation</div>
+              <div>Southern Baptist Convention</div>
+            </div>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe
+            title="Map to Rocks Baptist Church"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=393+Rocks+Church+Rd,+Pamplin,+VA+23958&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row">
+      <div class="foot-brand">Rocks Baptist Church</div>
+      <nav>
+        <ul>
+          <li><a href="#about">Welcome</a></li>
+          <li><a href="#times">Service Times</a></li>
+          <li><a href="#history">History</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom wrap" style="padding-left:0; padding-right:0;">
+      <span>393 Rocks Church Rd, Pamplin, VA 23958 · (434) 248-6986</span>
+      <span>&copy; <span id="year"></span> Rocks Baptist Church</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const navToggle = document.getElementById('navToggle');
+  const siteNav = document.getElementById('siteNav');
+  navToggle.addEventListener('click', () => {
+    const isOpen = siteNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+  siteNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    siteNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+</script>
+
+</body>
+</html>
